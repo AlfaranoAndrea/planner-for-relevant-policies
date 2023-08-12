@@ -48,7 +48,7 @@
 
     ;da aggiornare dinamicamente
     (is-task-p1_1 task)
-    (needs-restroom vis1)
+    (needs-restroom vis1) ; note: if the visitor doesn't need the restroom, this line should be replaced with (is-fine vis1)
     ;------------------
 )
 
