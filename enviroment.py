@@ -12,7 +12,7 @@ def update_pddl_file(filename, task_dict):
     if task not in task_dict:
         print(f"Unknown task '{task}'. Cannot proceed.")
         return
-    if bathroom_task != "yes" and != "no":
+    if bathroom_task != "yes" and bathroom_task != "no":
         print(f"Unknown task '{bathroom_task}'. Cannot proceed, insert yes or no. ")
         return
 
@@ -22,7 +22,7 @@ def update_pddl_file(filename, task_dict):
     
     # Update lines
     if "yes" in bathroom_task:
-        lines[50] = f"{task_dict[task][0]}\n"  # Line 51 (old Line 23)
+        lines[50] = f"(needs-restroom vis1)\n"  # Line 51 (old Line 23)
     else:
         lines[50] = f" (is-fine vis1)\n"  # Line 51 (old Line 23)
     
@@ -37,7 +37,7 @@ def update_pddl_file(filename, task_dict):
         print("Warning: file has less than 32 lines. Cannot replace line 32.")
     
     if "yes" in bathroom_task:
-        lines[58] = f"{task_dict[task][1]}\n"  # Line 59 (old Line 31)
+        lines[58] = f"(is-fine vis1)\n"  # Line 59 (old Line 31)
     else:
         lines[58] = f" \n"  # Line 59 (old Line 31)
         
@@ -50,17 +50,17 @@ def update_pddl_file(filename, task_dict):
 
 # A dictionary of tasks and corresponding 2D tuples to be inserted
 task_dict = {
-    "bagno" : ("(needs-restroom vis1)", "(is-fine vis1)"), #IS-FINE VA INSERITO NEL GOAL DEL PROBLEM E TESTATO!
-    "quadro1_s1": ("(is-task-p1_1 task)", "(played_P1_1 vis1)"),
-    "quadro2_s1": ("(is-task-p1_2 task)", "(played_P1_2 vis1)"),
-    "quadro3_s1": ("(is-task-p1_3 task)", "(played_P1_3 vis1)"),
-    "quadro4_s1": ("(is-task-p1_4 task)", "(played_P1_4 vis1)"),
-    "quadro1_s2": ("(is-task-p2_1 task)", "(played_P2_1 vis1)"),
-    "quadro2_s2": ("(is-task-p2_2 task)", "(played_P2_2 vis1)"),
-    "quadro3_s2": ("(is-task-p2_3 task)", "(played_P2_3 vis1)"),
-    "quadro4_s2": ("(is-task-p2_4 task)", "(played_P2_4 vis1)"),
-    "tour_s1": ("(is-task-p1_1 task)(is-task-p1_2 task)(is-task-p1_3 task)(is-task-p1_4 task)", "(played_P1_1 vis1)(played_P1_2 vis1)(played_P1_3 vis1)(played_P1_4 vis1)"),
-    "tour_s2": ("(is-task-p2_1 task)(is-task-p2_2 task)(is-task-p2_3 task)(is-task-p2_4 task)", "(played_P2_1 vis1)(played_P2_2 vis1)(played_P2_3 vis1)(played_P2_4 vis1)"),
+    #"bagno" : ("(needs-restroom vis1)", "(is-fine vis1)"), IS-FINE VA INSERITO NEL GOAL DEL PROBLEM E TESTATO!
+    "quadro1_s1": ("(is-task-p1_1 p11)", "(played_P1_1 vis1)"),
+    "quadro2_s1": ("(is-task-p1_2 p21)", "(played_P1_2 vis1)"),
+    "quadro3_s1": ("(is-task-p1_3 p31)", "(played_P1_3 vis1)"),
+    "quadro4_s1": ("(is-task-p1_4 p41)", "(played_P1_4 vis1)"),
+    "quadro1_s2": ("(is-task-p2_1 p12)", "(played_P2_1 vis1)"),
+    "quadro2_s2": ("(is-task-p2_2 p22)", "(played_P2_2 vis1)"),
+    "quadro3_s2": ("(is-task-p2_3 p32)", "(played_P2_3 vis1)"),
+    "quadro4_s2": ("(is-task-p2_4 p42)", "(played_P2_4 vis1)"),
+    "tour_s1": ("(is-task-p1_1 p11)(is-task-p1_2 p21)(is-task-p1_3 p31)(is-task-p1_4 p41)", "(played_P1_1 vis1)(played_P1_2 vis1)(played_P1_3 vis1)(played_P1_4 vis1)"),
+    "tour_s2": ("(is-task-p2_1 p12)(is-task-p2_2 p22)(is-task-p2_3 p32)(is-task-p2_4 p42)", "(played_P2_1 vis1)(played_P2_2 vis1)(played_P2_3 vis1)(played_P2_4 vis1)"),
     # Add more tasks if needed
 }
 
