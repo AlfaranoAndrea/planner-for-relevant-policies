@@ -23,7 +23,7 @@
     (is-pos p0) ;p0 the starting position of pepper is assumed neutral (between room1 and room2)
     (is-pos p11)(is-pos p21)(is-pos p31)(is-pos p41) ;positions of room1
     (is-pos p12)(is-pos p22)(is-pos p32)(is-pos p42) ;positions of room2
-    (is-pos task)
+    ;(is-pos task)
     (at agent p0)
     
     ;--------- new
@@ -47,8 +47,8 @@
 
 
     ;da aggiornare dinamicamente
-    (is-task-p1_1 task)
-    (needs-restroom vis1)
+    (is-task-p1_2 p12)
+    (needs-restroom vis1);(is-fine vis1)
     ;------------------
 )
 
@@ -57,7 +57,7 @@
 ; and the painting to play
 (:goal (and
     ;da aggiornare dinamicamente
-    (played_P1_1 vis1)
+    (played_P1_2 vis1)
     ;---------------
 ))
 
