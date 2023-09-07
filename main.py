@@ -5,10 +5,10 @@ def plan_reader(path):
     with open(path, 'r') as p: 
         lines = p.readlines()
         lines = [elem.strip().strip('()').split(' ') for elem in lines]
-        #['move agent p0 task', 'restroom agent vis1', 'assist_visitor_DETDUP_0 agent vis1 task']
         return lines
     
-#this dictionary contains the mapping from each action to the corresponding script path
+#this dictionary contains the mapping from each action to the corresponding script path.
+#when handling the pictures, we also pass the specific picture the robot should present
 action_to_script = {
    'move' : "scripts/choice_room.py",
    'restroom' : "scripts/pipi.py",
@@ -27,18 +27,17 @@ action_to_script = {
 #this function executes a single action
 def execute_single_action(action):
     act = action[0]
+    #move
     if (act == 'move'):
         place1 = action[2]
         place2 = action[3]
         sys.argv = [place1,place2]
         exec(open(action_to_script[act]).read())
- 
-        #os.system('python3' + ' ' + action_to_script[act] + ' ' + place)
-        #exec(open(action_to_script[act]).read(),)
-        
+
+    #restroom  
     elif( act == 'restroom'):
         exec(open(action_to_script[act]).read())
-
+    #museum history
     elif( act == 'assist_visitor_DETDUP_8'):
         exec(open(action_to_script[act]).read())
     
@@ -56,11 +55,8 @@ def execute_single_action(action):
     
 
 
-
 def main():
-    #reading the plan
-    lines= plan_reader('sas_plan') #TODO: insert path of the file 'sas_plan'
-    #executing the actions in the plan
+    lines= plan_reader('sas_plan') 
     for action in lines:
         execute_single_action(action)
 
