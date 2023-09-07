@@ -12,14 +12,14 @@ def plan_reader(path):
 action_to_script = {
    'move' : "scripts/choice_room.py",
    'restroom' : "scripts/pipi.py",
-   'assist_visitor_DETDUP_0' : ["scripts/presentazione_pictures.py", 'p 1_1'], 
-   'assist_visitor_DETDUP_1' : ["scripts/presentazione_pictures.py", 'p 1_2'],
-   'assist_visitor_DETDUP_2' : ["scripts/presentazione_pictures.py", 'p 1_3'],
-   'assist_visitor_DETDUP_3' : ["scripts/presentazione_pictures.py", 'p 1_4'],
-   'assist_visitor_DETDUP_4' : ["scripts/presentazione_pictures.py", 'p 2_1'],
-   'assist_visitor_DETDUP_5' : ["scripts/presentazione_pictures.py", 'p 2_2'],
-   'assist_visitor_DETDUP_6' : ["scripts/presentazione_pictures.py", 'p 2_3'],
-   'assist_visitor_DETDUP_7' : ["scripts/presentazione_pictures.py", 'p 2_4'],
+   'assist_visitor_DETDUP_0' : ["scripts/presentazione_pictures.py", 'p 11'], 
+   'assist_visitor_DETDUP_1' : ["scripts/presentazione_pictures.py", 'p 21'],
+   'assist_visitor_DETDUP_2' : ["scripts/presentazione_pictures.py", 'p 31'],
+   'assist_visitor_DETDUP_3' : ["scripts/presentazione_pictures.py", 'p 41'],
+   'assist_visitor_DETDUP_4' : ["scripts/presentazione_pictures.py", 'p 12'],
+   'assist_visitor_DETDUP_5' : ["scripts/presentazione_pictures.py", 'p 22'],
+   'assist_visitor_DETDUP_6' : ["scripts/presentazione_pictures.py", 'p 32'],
+   'assist_visitor_DETDUP_7' : ["scripts/presentazione_pictures.py", 'p 42'],
    'assist_visitor_DETDUP_8' : "scripts/museum_history.py",
 
 }
@@ -49,10 +49,6 @@ def execute_single_action(action):
 
     
         
-
-    
-    #print(action_to_script[act])
-    #exec(open(action_to_script[act]).read())
     return 0
 
 
