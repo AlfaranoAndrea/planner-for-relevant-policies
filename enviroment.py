@@ -68,3 +68,5 @@ problem_path = "./src/museum-problem.pddl"
 
 # Call the function on your PDDL problem file
 update_pddl_file(problem_path, task_dict)
+
+exec(open('plan_handler.py').read())
